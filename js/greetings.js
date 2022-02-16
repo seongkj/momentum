@@ -12,9 +12,9 @@ const HIDDEN_CLASSNAME = "hidden"; //반복되는 string은 변수로 지정해 
 const USERNAME_KEY = "username";    //실수를 방지하기 용이함
 
 function onLoginSubmit(event) {
-    event.preventDefault();
-    loginForm.classList.add(HIDDEN_CLASSNAME);
-    localStorage.setItem(USERNAME_KEY, loginInput.value);
+    event.preventDefault(); //submit의 기본동작을 막아줌(새로고침)
+    loginForm.classList.add(HIDDEN_CLASSNAME); //login-form에 hidden을 지정해줘 보이지 않게한다.
+    localStorage.setItem(USERNAME_KEY, loginInput.value); //로컬스토리지에 Key=username, Value=loginInput.value
     paintGreetings();
 }
 
@@ -22,14 +22,14 @@ function paintGreetings() {
     const username = localStorage.getItem(USERNAME_KEY);
     // greeting.innerText = "Hello "+ username;
     greeting.innerText = `Hello ${username}`; //윗줄과 같은 결과
-    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.classList.remove(HIDDEN_CLASSNAME);//greeting에 hidden클래스를 지워 보이게 해준다.
 }
 
-const savedUsername = localStorage.getItem(USERNAME_KEY);
+const savedUsername = localStorage.getItem(USERNAME_KEY); //로컬스토리지의 username의 벨류값 변수로 지정
 
-if(savedUsername === null) {
-    loginForm.classList.remove(HIDDEN_CLASSNAME);
-    loginForm.addEventListener("submit", onLoginSubmit);
+if(savedUsername === null) {    //저장되있던 username이 없다면 실행
+    loginForm.classList.remove(HIDDEN_CLASSNAME);   //login-form에 있던 hidden 을 지워준다.
+    loginForm.addEventListener("submit", onLoginSubmit); //submit시 onLoginSubmit 함수 실행
 } else {
     paintGreetings();
 }

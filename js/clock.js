@@ -13,6 +13,7 @@ function getClock() {
     const seconds = String(date.getSeconds()).padStart(2,"0");
     // clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     clock.innerText = `${hours}:${minutes}:${seconds}`;
+    // console.log(date);
 }
 getClock();
 setInterval(getClock, 1000);
