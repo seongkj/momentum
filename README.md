@@ -1,2 +1,3 @@
-schedule
-JS 코딩
+momentum 코딩
+https://seongkj.github.io/momentum/
+JS, CSS

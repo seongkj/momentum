@@ -16,40 +16,70 @@ img {
   /* opacity: 80%; */
 }
 
-#weather {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
 body {
   color: white;
-}
-.momentum {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-h2 {
-  margin-top: 250px;
+#clock {
   font-size: 150px;
-  font-weight: 600;
+  font-weight: 400;
+  margin-bottom: 30px;
 }
-h1 {
-  font-size: 50px;
-  font-weight: 600;
-}
-/* #login-form {
-} */
+
 #login-form input {
   border-style: none;
   border-bottom: 1px solid;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  width: 500px;
+  height: 60px;
+  font-size: 50px;
+  text-align: center;
+}
+#todo-form input {
+  border-style: none;
+  border-bottom: 1px solid;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  width: 500px;
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
+}
+input:focus::placeholder {
+  color: rgba(0, 0, 0, 0);
+}
+input::placeholder {
+  color: white;
+}
+input:focus {
+  outline: none;
+}
+#login-form button {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 50px;
+}
+
+#greeting {
+  font-size: 50px;
+  margin-bottom: 100px;
+  font-weight: 600;
 }
 
 #quote {
   position: absolute;
   bottom: 10px;
   font-size: 20px;
+}
+#weather {
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
