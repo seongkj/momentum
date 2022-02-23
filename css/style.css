@@ -3,7 +3,6 @@
 .hidden {
   display: none;
 }
-
 img {
   position: absolute;
   width: 100%;
@@ -13,9 +12,8 @@ img {
   right: 0px;
   bottom: 0px;
   z-index: -1;
-  /* opacity: 80%; */
+  opacity: 90%;
 }
-
 body {
   color: white;
   display: flex;
@@ -29,17 +27,31 @@ body {
   font-size: 150px;
   font-weight: 400;
   margin-bottom: 30px;
+  position: absolute;
+  top: 30%;
 }
-
+#login-form {
+  position: absolute;
+  top: 50%;
+}
 #login-form input {
   border-style: none;
   border-bottom: 1px solid;
   background-color: rgba(0, 0, 0, 0);
   color: white;
-  width: 500px;
-  height: 60px;
-  font-size: 50px;
+  height: 50px;
+  font-size: 40px;
   text-align: center;
+}
+#login-form button {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 50px;
+}
+#todo-form {
+  position: absolute;
+  top: 60%;
 }
 #todo-form input {
   border-style: none;
@@ -60,19 +72,34 @@ input::placeholder {
 input:focus {
   outline: none;
 }
-#login-form button {
-  border-style: none;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  font-size: 50px;
-}
 
 #greeting {
   font-size: 50px;
-  margin-bottom: 100px;
   font-weight: 600;
+  position: absolute;
+  top: 50%;
 }
 
+/* todo-list */
+#todo-list {
+  position: absolute;
+  top: 70%;
+  font-size: 30px;
+}
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+#todo-list li span {
+  width: 100%;
+  text-align: center;
+}
+#todo-list button {
+  margin-left: 20px;
+}
+
+/* 아래는 포지션이 absolute인 것들 명언, 날씨 */
 #quote {
   position: absolute;
   bottom: 10px;
@@ -80,6 +107,6 @@ input:focus {
 }
 #weather {
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 5px;
+  top: 3px;
 }

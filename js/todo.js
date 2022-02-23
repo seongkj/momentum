@@ -25,7 +25,7 @@ function paintToDo(newTodo) {   //todolist 생성
     span.innerText = newTodo.text;
     const button = document.createElement("button");    //todolist 삭제버튼
     button.innerText = "❌";
-    button.addEventListener("click", deleteToDo);
+    button.addEventListener("click", deleteToDo);   //button클릭시 deleteToDo함수 호출
     li.appendChild(span);
     li.appendChild(button);
     toDoList.appendChild(li);
@@ -33,14 +33,14 @@ function paintToDo(newTodo) {   //todolist 생성
 
 function handleToDoSubmit(event) {
     event.preventDefault();
-    const newTodo = toDoInput.value;
-    toDoInput.value = "";
-    const newTodoObj = {
+    const newTodo = toDoInput.value;    //input내용을 newTodo변수에 할당
+    toDoInput.value = "";               //input의 내용은 다시 null해준다.
+    const newTodoObj = {                //오브젝트에 newTodo와 id를 넣어준다.
         text:newTodo,
         id: Date.now(),
     };
-    toDos.push(newTodoObj);
-    paintToDo(newTodoObj);
+    toDos.push(newTodoObj);         //toDos배열에 방금 생긴 오브젝트를 push 한다.
+    paintToDo(newTodoObj);          //todolist를 생성하는 함수
     saveToDos();
 }
 
@@ -52,8 +52,6 @@ if(savedToDos !== null) {
     toDos = parsedTodos; //새로고침마다 toDos 값이 모두 초기화 된 상태로 있기때문에 로컬에 저장되있던 todos를 다시 넣어준다.
     parsedTodos.forEach(paintToDo);
 }
-
-
 
 
 
