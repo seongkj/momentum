@@ -42,6 +42,7 @@ body {
   height: 50px;
   font-size: 40px;
   text-align: center;
+  width: 400px;
 }
 #login-form button {
   border-style: none;
@@ -72,12 +73,28 @@ input::placeholder {
 input:focus {
   outline: none;
 }
-
-#greeting {
-  font-size: 50px;
-  font-weight: 600;
+#greeting-info {
   position: absolute;
   top: 50%;
+  display: flex;
+  /* justify-content: center; */
+  /* width: 100%; */
+}
+#greeting {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  /* position: absolute;
+  top: 50%; */
+}
+#greeting-LogOut {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 30px;
+  /* position: absolute;
+  top: 50%;
+  right: 400px; */
 }
 
 /* todo-list */

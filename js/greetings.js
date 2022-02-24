@@ -7,6 +7,7 @@ const loginInput = document.querySelector("#login-form input");
 const loginButton = document.querySelector("#login-form button");
 const greeting = document.querySelector("#greeting");
 const todoForm = document.querySelector("#todo-form");
+const greetingLogOut = document.querySelector("#greeting-LogOut");
 
 const HIDDEN_CLASSNAME = "hidden"; //반복되는 string은 변수로 지정해 두는게 좋다.
 const USERNAME_KEY = "username";    //실수를 방지하기 용이함
@@ -21,9 +22,20 @@ function onLoginSubmit(event) {
 function paintGreetings() {
     const username = localStorage.getItem(USERNAME_KEY);
     // greeting.innerText = "Hello "+ username;
-    greeting.innerText = `Hello ${username}`; //윗줄과 같은 결과
+    greeting.innerText = `Have a nice day ${username}`; //윗줄과 같은 결과
     greeting.classList.remove(HIDDEN_CLASSNAME);//greeting에 hidden클래스를 지워 보이게 해준다.
+    greetingLogOut.classList.remove(HIDDEN_CLASSNAME);//hidden클래스를 지워 보이게 해준다.
     todoForm.classList.remove(HIDDEN_CLASSNAME);//todoForm에 hidden클래스를 지워 보이게 해준다.
+}
+
+function logout(event) {
+    event.preventDefault();
+    greeting.classList.add(HIDDEN_CLASSNAME);
+    greetingLogOut.classList.add(HIDDEN_CLASSNAME);
+    todoForm.classList.add(HIDDEN_CLASSNAME);
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    localStorage.removeItem(USERNAME_KEY);
+    loginInput.value = "";
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY); //로컬스토리지의 username의 벨류값 변수로 지정
@@ -34,3 +46,4 @@ if(savedUsername === null) {    //저장되있던 username이 없다면 실행
 } else {
     paintGreetings();
 }
+greetingLogOut.addEventListener("click", logout);//로그아웃 버튼 클릭시 이벤트 발생
