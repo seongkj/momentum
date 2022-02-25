@@ -18,16 +18,24 @@ function deleteToDo(event) {    //todolist 삭제
     //array.filter(function) 배열의 item중 function을 통과된 item으로만 새로운 배열을 반환
 }
 
+function changeToDo(event) {
+    console.log("우왕");
+}
+
 function paintToDo(newTodo) {   //todolist 생성
     const li = document.createElement("li");
     li.id = newTodo.id; //.id로 html 태그에 id 부여 가능
     const span = document.createElement("span");
     span.innerText = newTodo.text;
-    const button = document.createElement("button");    //todolist 삭제버튼
-    button.innerText = "❌";
-    button.addEventListener("click", deleteToDo);   //button클릭시 deleteToDo함수 호출
+    const buttonDelete = document.createElement("button");    //todolist 삭제버튼
+    buttonDelete.innerText = "❌";
+    const buttonChange = document.createElement("button");    //todolist 수정버튼
+    buttonChange.innerText = "수정";
+    buttonDelete.addEventListener("click", deleteToDo);   //button클릭시 deleteToDo함수 호출
+    buttonChange.addEventListener("click", changeToDo);   //button클릭시 changeToDo함수 호출
     li.appendChild(span);
-    li.appendChild(button);
+    li.appendChild(buttonChange);
+    li.appendChild(buttonDelete);
     toDoList.appendChild(li);
 }
 
@@ -52,7 +60,6 @@ if(savedToDos !== null) {
     toDos = parsedTodos; //새로고침마다 toDos 값이 모두 초기화 된 상태로 있기때문에 로컬에 저장되있던 todos를 다시 넣어준다.
     parsedTodos.forEach(paintToDo);
 }
-
 
 
 //로컬 스토리지에는 배열로 저장이 안됨. JSON.stringify() 배열처럼보이는 스트링을 만들어줌
